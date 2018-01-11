@@ -91,9 +91,14 @@ $( document ).ready(function() {
     $("#nanogallery2").nanogallery2({
       
       // Gallery Settings
-      thumbnailHeight:  200,
-      thumbnailWidth:   200,
-      items: imgList            // This is a JSON object with imgPaths / Names
+      thumbnailHeight:  "auto",
+      thumbnailWidth:   300,
+      thumbnailBaseGridHeight: 100,
+      thumbnailGutterWidth: 0,          // Don't place the thumbnails apart from each other
+      thumbnailGutterHeight: 0,
+      thumbnailBorderHorizontal: 3,     // Let the border it's job instead
+      thumbnailBorderVertical: 3,
+      items: imgList                    // This is a JSON object with imgPaths / Names
     });
   });
 });

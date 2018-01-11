@@ -10,8 +10,27 @@
     This file contains CSS classes / IDs used to override the Creative Bootstrap Theme
 */
 
+/*
+    Tweaking the header image, it's being set to "Center" but I'd rather it
+    show the top of the image instead ("Top")
+*/
+#page-top > header {
+  background-position: top;
+}
+
 .text-small {
   font-size: 100%;
+}
+
+/* Better colors for the header text */
+.text-header {
+  color: white;
+  text-shadow: 4px 4px 4px #000000;
+}
+
+.text-header-p {
+  color: white;
+  background-color: black;
 }
 
 /*  For the GitHub Section link
