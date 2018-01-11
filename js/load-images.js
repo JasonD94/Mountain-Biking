@@ -77,7 +77,7 @@ $( document ).ready(function() {
       // Replace underscores (_'s) with spaces, and remove the file extension too (".jpg")
       // And I like slashes instead of dashes so let's replace those too!
       var imgName = data[x].name;
-      imgName = imgName.replace("_", " ").replace("-", "/").replace(".jpg", " "); 
+      imgName = imgName.replace(/_/g, " ").replace(/-/g, "/").replace(".jpg", " "); 
       
       imgList.push( { "src": imgPath,
                       "srct": imgPath,
