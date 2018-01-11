@@ -8,52 +8,34 @@
     
     This JS file loads all images in the /img/album/ directory into the 
     nanogallery2
+    
+    ** Useful URLs **
+    GitHub API Docs:    https://developer.github.com/v3/
+    jQuery.ajax() Docs: https://api.jquery.com/jquery.ajax/
+    nanogallery2 Docs:  https://nanogallery2.nanostudio.org/quickstart.html
 */
 
-// Get a list of all images in /img/album/
+// List of image paths for displaying in the nanogallery2 image gallery
 var imgList = [];
 
+// GitHub API End Point URL / Path
+var githubApiVersion = "application/vnd.github.v3+json";
+var githubApiBaseUrl = "https://api.github.com";
+var githubRepo = "Mountain-Biking";
+var githubPath = "img/album/";
+var githubBranch = "gh-pages";
+
 $( document ).ready(function() {
-  // 1-10-2018: The below code would only work if you run your own server.
-  // It could work on my Digital Ocean dropplet, but I'm not looking to run
-  // this page on there.
-  
-  /*
-  // For every photo we find, add an <a href> for each image, with it's path set.
-  $.ajax({
-    // Need to set async to false so we can actually load the list of images into nanogallery2.
-    // https://stackoverflow.com/questions/13971769/how-to-make-jquery-ajax-request-synchronous
-    async: false,
-    url : imgDir,
-    success: function (data) {
-      $(data).find("a").attr("href", function (i, imgName) {
-        if( imgName.match(/\.(jpe?g|png|gif)$/) ) { 
-          var imgPath = imgDir + imgName;
-          imgList.push( { "src": imgPath,
-                          "srct": imgPath,
-                          "title" : "Mountain Biking" } );
-        } 
-      });
-    }
-  });
-  */
   
   /* 
       So turns out GitHub Pages, which is how I host the majority of my web pages,
-      doesn't let me access a directory like "img/album/" mentioned above. They do
-      however have a REST API! So, let's use that instead.
-      
-      GitHub API  URL: https://api.github.com
-      GitHub API Docs: https://developer.github.com/v3/
-      
-      jQuery.ajax can be used to GET the Contents of a directory 
-      via the GitHub REST API: https://api.jquery.com/jquery.ajax/
+      doesn't let me access a directory like "img/album/" mentioned above. 
+      They do however have a REST API! So, let's use that instead.
+     
+      jQuery.ajax can be used to GET the Contents of a directory via the GitHub REST API.
   */
   
   // GET /repos/:owner/:repo/contents/:path
-  var githubApiBaseUrl = "https://api.github.com";
-  var githubRepo = "Mountain-Biking";
-  var githubPath = "img/album/";
   var githubGetRequest = githubApiBaseUrl + "/repos/JasonD94/" + githubRepo + "/contents/" + githubPath;
   
   // API docs page for Getting Repository Contents: https://developer.github.com/v3/repos/contents/
@@ -62,17 +44,18 @@ $( document ).ready(function() {
     // Example: https://api.github.com/repos/JasonD94/Mountain-Biking/contents/img/album/
     url: githubGetRequest,
     
+    // Need to provide the branch so we pull from gh-pages and NOT master
+    data: {"ref": githubBranch},
+    
     // Make sure to request API V3, just in case GitHub releases a future version 
     // which breaks this code. This also gets us JSON too.
-    headers: { 
-      "accept": "application/vnd.github.v3+json"
-    },
+    headers: { "accept": githubApiVersion },
     type: "GET"
   });
   
   /* 
-      Once we get the results back, we can run through the Array of Objects we get
-      back. It'll look something like:
+      Once we get the results back, we can run through the Array of Objects we get back. 
+      It'll look something like:
       [
         {
           name: "something.jpg",
@@ -82,8 +65,6 @@ $( document ).ready(function() {
         
         ... tons more file objects like above ...
       ]
-      
-      We will want to save a list of the paths.
   */
   request.done(function(data) {
     // Using for instead of foreach for performance
@@ -105,13 +86,12 @@ $( document ).ready(function() {
     // Debugging
     console.log(imgList);
   
-    // According to this page, we need to provide JSON for the items.
-    // https://nanogallery2.nanostudio.org/quickstart.html
     $("#nanogallery2").nanogallery2({
+      
       // Gallery Settings
       thumbnailHeight:  200,
       thumbnailWidth:   200,
-      items: imgList
+      items: imgList            // This is a JSON object with imgPaths / Names
     });
   });
 });
