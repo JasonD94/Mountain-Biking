@@ -13,6 +13,7 @@
     GitHub API Docs:    https://developer.github.com/v3/
     jQuery.ajax() Docs: https://api.jquery.com/jquery.ajax/
     nanogallery2 Docs:  https://nanogallery2.nanostudio.org/quickstart.html
+    .replace all: https://stackoverflow.com/questions/2116558/fastest-method-to-replace-all-instances-of-a-character-in-a-string
 */
 
 // List of image paths for displaying in the nanogallery2 image gallery
