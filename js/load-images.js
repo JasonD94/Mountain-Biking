@@ -75,8 +75,9 @@ $( document ).ready(function() {
       
       // Using the img name to dynamically populate a description
       // Replace underscores (_'s) with spaces, and remove the file extension too (".jpg")
+      // And I like slashes instead of dashes so let's replace those too!
       var imgName = data[x].name;
-      imgName = imgName.replace("_", " ").replace(".jpg", " "); 
+      imgName = imgName.replace("_", " ").replace("-", "/").replace(".jpg", " "); 
       
       imgList.push( { "src": imgPath,
                       "srct": imgPath,
