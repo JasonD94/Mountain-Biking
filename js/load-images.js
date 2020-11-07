@@ -93,10 +93,8 @@ $( document ).ready(function() {
 			            });
     }
     
-    // Debugging
-    console.log(imgList);
-  
 		// Sort by date
+		// https://stackoverflow.com/questions/10123953/how-to-sort-an-array-by-a-date-property
 		imgList.sort(function(a, b){
 			return new Date(b.date) - new Date(a.date)
 		});
