@@ -5,6 +5,7 @@
     MIT Licensed - see http://opensource.org/licenses/MIT for details.
     Anyone may freely use this code. Just don't sue me if it breaks stuff.
     Created: Jan 9, 2018
+		Last Updated: Nov 6, 2020
     
     This JS file loads all images in the /img/album/ directory into the 
     nanogallery2
@@ -68,6 +69,7 @@ $( document ).ready(function() {
       ]
   */
   request.done(function(data) {
+		
     // Using for instead of foreach for performance
     // https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead
     for (var x = 0, len = data.length; x < len; x++)
@@ -78,16 +80,27 @@ $( document ).ready(function() {
       // Replace underscores (_'s) with spaces, and remove the file extension too (".jpg")
       // And I like slashes instead of dashes so let's replace those too!
       var imgName = data[x].name;
+			
+			imgDate = imgName.split("_")
+			imgDate = imgDate[0]
+			
       imgName = imgName.replace(/_/g, " ").replace(/-/g, "/").replace(".jpg", " "); 
       
-      imgList.push( { "src": imgPath,
+      imgList.push({ "src": imgPath,
                       "srct": imgPath,
-                      "title": imgName } );
+                      "title": imgName,
+                      "date": imgDate
+			            });
     }
     
     // Debugging
-    //console.log(imgList);
+    console.log(imgList);
   
+		// Sort by date
+		imgList.sort(function(a, b){
+			return new Date(b.date) - new Date(a.date)
+		});
+	
     $("#nanogallery2").nanogallery2({
       
       // Gallery Settings
