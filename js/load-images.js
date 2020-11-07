@@ -86,7 +86,7 @@ $( document ).ready(function() {
     }
     
     // Debugging
-    console.log(imgList);
+    //console.log(imgList);
   
     $("#nanogallery2").nanogallery2({
       
