@@ -15,7 +15,11 @@
     show the top of the image instead ("Top")
 */
 #page-top > header {
-  background-position: top;
+  background-position: bottom;
+}
+
+header .header-content {
+	transform: translateY(-160%)
 }
 
 .text-small {
