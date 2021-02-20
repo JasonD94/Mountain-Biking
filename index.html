@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!--
     File: index.html
@@ -12,7 +11,7 @@
     MIT Licensed - see http://opensource.org/licenses/MIT for details.
     Anyone may freely use this code. Just don't sue me if it breaks stuff.
     Created: June 19, 2017
-    Last Updated: November 15th, 2020
+    Last Updated: February 19th, 2021
 
     This code is originally from: https://github.com/JasonD94/jasond94.github.io
     Which itself is based on
@@ -61,11 +60,11 @@
 </head>
 
 <body id="page-top">
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top text-black" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
 
       <!-- Updated with latest Creative -->
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Jason Downing</a>
+      <a class="navbar-brand page-scroll" href="/">Jason Downing</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" 
               data-toggle="collapse" data-target="#navbarResponsive" 
               aria-controls="navbarResponsive" aria-expanded="false" 
@@ -93,17 +92,20 @@
   </nav>
 
   <!--  Intro Section  -->
-  <header>
-    <div class="header-content">
-      <div class="header-content-inner">
-        <h1 id="homeHeading" class="text-header">
-				  <!-- Inside a span for the background-color css -->
-					<span>Mountain Biking</span>
-			  </h1>
-        <hr>
-        <p class="text-header-p">A collection of Epic Mountain Biking Photos taken over the last 
-        few years in NH, MA & VT.</p>
-        <a href="#about" class="btn btn-primary btn-xl page-scroll">View the Photos</a>
+  <header class="masthead text-center text-black d-flex">
+    <div class="container my-auto header-content-pos">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h1 class="text-uppercase">
+						<strong>Jason Downing</strong>
+					</h1>
+					<hr>
+				</div>
+				<div class="col-lg-8 mx-auto">
+					<p class="text-header-p">A collection of Epic Mountain Biking Photos taken over the last 
+					few years in NH, MA & VT.</p>
+					<a href="#about" class="btn btn-primary btn-xl page-scroll">View the Photos</a>
+        </div>
       </div>
     </div>
   </header>
@@ -201,10 +203,10 @@
 			  <!-- Removed email link, because spam bots just figure it out and I get hit with 10s of thousands of
               requests a month so... not doing that. If you can read this, just open up my resume ;P      -->
         <div class="col-4 col-sm-4 col-lg-2 offset-lg-3 text-center">
-				  <a href="img/resume.pdf">
+				  <a href="../img/resume.pdf">
 						<i class="fa fa-envelope fa-4x sr-icons"></i>
 					</a>
-					<a href="img/resume.pdf">
+					<a href="../img/resume.pdf">
 						<p>Email - <span class="text-blue text-italic font-weight-bold">see resume</span></p>
 					</a>
         </div>

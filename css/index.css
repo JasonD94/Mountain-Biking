@@ -22,8 +22,8 @@
   background-position: bottom;
 }
 
-header .header-content {
-	transform: translateY(-160%)
+header .header-content-pos {
+	transform: translateY(-90%)
 }
 
 .text-small {
@@ -45,6 +45,13 @@ header .header-content {
 .text-header-p {
   color: white;
   background-color: black;
+}
+
+/* For the new header, all text shall be black around the intro section 
+	 Will hopefully be easier to read.
+*/
+.text-black {
+	color: black;
 }
 
 /*  For the GitHub Section link
