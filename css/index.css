@@ -19,7 +19,7 @@
 		the photo look better and align nicely with the text.
 */
 #page-top > header {
-  background-position: top;
+  background-position: bottom;
 }
 
 header .header-content {
